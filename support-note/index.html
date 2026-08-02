@@ -2,205 +2,227 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Note Essence Support</title>
-<meta name="description" content="Support and contact information for the Note Essence app.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support — Note Essence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --navy: #0B3A70;
-    --cyan: #00E5E5;
-    --bg: #ffffff;
-    --bg-soft: #f4f7fb;
-    --text: #1a2433;
-    --text-muted: #57667a;
-    --border: #e2e8f0;
-    --card: #ffffff;
+  :root{
+    --ink-900:#14181f;
+    --ink-800:#1b212c;
+    --parchment:#ede6d6;
+    --parchment-dim:#c9c2ae;
+    --brass:#c9a24b;
+    --brass-dim:#9c7d3a;
+    --rule:#333b4a;
+    --muted:#8a93a6;
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #0b1220;
-      --bg-soft: #101a2c;
-      --text: #eef2f8;
-      --text-muted: #a3b0c2;
-      --border: #22304a;
-      --card: #101a2c;
-    }
+
+  *{box-sizing:border-box;}
+
+  body{
+    margin:0;
+    background:var(--ink-900);
+    color:var(--parchment);
+    font-family:'Source Serif 4', serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
   }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
+
+  a{color:var(--brass);}
+  a:hover{color:var(--parchment);}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--brass); outline-offset:3px;}
+
+  .margin-rule{
+    position:fixed;
+    top:0; bottom:0; left:48px;
+    width:1px;
+    background:var(--rule);
+    z-index:0;
   }
-  .wrap {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 48px 24px 80px;
+  .margin-rule::after{
+    content:"";
+    position:absolute;
+    top:120px; left:-3px;
+    width:7px; height:7px;
+    border-radius:50%;
+    background:var(--brass);
   }
-  header {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 40px;
+
+  .wrap{
+    max-width:720px;
+    margin:0 auto;
+    padding:96px 32px 64px 88px;
+    position:relative;
+    z-index:1;
   }
-  .logo {
-    width: 56px;
-    height: 56px;
-    border-radius: 14px;
-    flex-shrink: 0;
+
+  @media (max-width:600px){
+    .margin-rule{left:20px;}
+    .wrap{padding:64px 24px 48px 44px;}
   }
-  h1 {
-    font-size: 1.5rem;
-    margin: 0;
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--brass);
+    margin:0 0 18px;
   }
-  .tagline {
-    margin: 2px 0 0;
-    color: var(--text-muted);
-    font-size: 0.95rem;
+
+  h1{
+    font-size:clamp(32px, 5vw, 44px);
+    font-weight:600;
+    margin:0 0 8px;
+    color:var(--parchment);
   }
-  h2 {
-    font-size: 1.05rem;
-    margin: 40px 0 12px;
-    color: var(--navy);
+
+  .lede{
+    font-size:18px;
+    color:var(--parchment-dim);
+    margin:0 0 56px;
+    max-width:52ch;
   }
-  @media (prefers-color-scheme: dark) {
-    h2 { color: var(--cyan); }
+
+  .contact-card{
+    border:1px solid var(--rule);
+    border-radius:2px;
+    padding:28px 28px 26px;
+    margin:0 0 56px;
+    background:linear-gradient(180deg, rgba(201,162,75,0.05), transparent 60%);
   }
-  p { color: var(--text); }
-  .card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 24px;
-    margin-bottom: 8px;
+
+  .contact-card h2{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    font-weight:500;
+    color:var(--muted);
+    margin:0 0 10px;
   }
-  .contact-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--navy);
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-    padding: 12px 20px;
-    border-radius: 999px;
-    font-size: 0.95rem;
+
+  .contact-email{
+    font-size:22px;
+    font-weight:500;
+    word-break:break-word;
   }
-  .contact-btn:hover { opacity: 0.9; }
-  .email {
-    color: var(--navy);
-    font-weight: 600;
-    text-decoration: none;
+
+  .contact-note{
+    font-size:14px;
+    color:var(--muted);
+    margin:10px 0 0;
   }
-  @media (prefers-color-scheme: dark) {
-    .email { color: var(--cyan); }
+
+  section.faq{margin:0 0 8px;}
+
+  section.faq h2{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--brass);
+    margin:0 0 24px;
+    padding-bottom:12px;
+    border-bottom:1px solid var(--rule);
   }
-  .email:hover { text-decoration: underline; }
-  details {
-    border-bottom: 1px solid var(--border);
-    padding: 14px 0;
+
+  .entry{
+    padding:22px 0;
+    border-bottom:1px dashed var(--rule);
   }
-  details:last-child { border-bottom: none; }
-  summary {
-    cursor: pointer;
-    font-weight: 600;
-    list-style: none;
+  .entry:last-child{border-bottom:none;}
+
+  .entry h3{
+    font-size:18px;
+    font-weight:600;
+    margin:0 0 8px;
+    color:var(--parchment);
   }
-  summary::-webkit-details-marker { display: none; }
-  summary::before {
-    content: "+";
-    display: inline-block;
-    width: 1.2em;
-    color: var(--navy);
-    font-weight: 700;
+
+  .entry p{
+    margin:0;
+    color:var(--parchment-dim);
+    font-size:16px;
   }
-  @media (prefers-color-scheme: dark) {
-    summary::before { color: var(--cyan); }
+
+  footer{
+    margin-top:72px;
+    padding-top:24px;
+    border-top:1px solid var(--rule);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--muted);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
   }
-  details[open] summary::before { content: "–"; }
-  details p {
-    margin: 10px 0 0 1.2em;
-    color: var(--text-muted);
-    font-size: 0.95rem;
-  }
-  footer {
-    margin-top: 56px;
-    padding-top: 24px;
-    border-top: 1px solid var(--border);
-    color: var(--text-muted);
-    font-size: 0.85rem;
+
+  @media (prefers-reduced-motion: no-preference){
+    .entry, .contact-card{transition:border-color 0.2s ease;}
+    .entry:hover{border-bottom-color:var(--brass-dim);}
   }
 </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <svg class="logo" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Note Essence logo">
-        <rect width="48" height="48" rx="11" fill="#ffffff"/>
-        <text x="6" y="33" font-family="-apple-system, Helvetica, Arial, sans-serif" font-weight="800" font-size="26" fill="#0B3A70">N</text>
-        <text x="24" y="33" font-family="-apple-system, Helvetica, Aria="800" font-size="26" fill="#00E5E5">E</text>
-      </svg>
-      <div>
-        <h1>Note Essence Support</h1>
-        <p class="tagline">Help and contact information</p>
-      </div>
-    </header>
 
-    <div class="card">
-      <p style="margin-top:0;">
-        Need help with Note Essence, found a bug, or have feedback? We't any time.
-      </p>
-      <a class="contact-btn" href="mailto:admin@noteessence.com?subject>
-        ✉️ Email admin@noteessence.com
-      </a>
-    </div>
+<div class="margin-rule" aria-hidden="true"></div>
 
-    <h2>Frequently Asked Questions</h2>
-    <div class="card">
-      <details open>
-        <summary>How do I create and organize notes?</summary>
-        <p>Tap Add Note from your note list, write your content, and add tags to keep things organized. Use the search bar on the note list to instantly find any note by
-title or content.</p>
-      </details>
-      <details>
-        <summary>What's the difference between public and private notes?</summary>
-        <p>Each note can be marked public or private. Private notes arecan set your preferred default visibility for new notes in Settings.</p>
-      </details>
-      <details>
-        <summary>What do the Summarize, Wikipedia, and Translate buttons do?</summary>
-        <p>While editing a note, Summarize condenses your note into keya pulls in a quick reference extract based on your note's title, and Goog
-le Translate lets you translate your note's content into another language — all without leaving the editor.</p>
-      </details>
-      <details>
-        <summary>I didn't receive my email verification link.</summary>
-        <p>Check your spam or junk folder first. If it's still missing, you can request a new verification email from the app, or contact us at admin@noteessence.com and
-we'll help sort it out.</p>
-      </details>
-      <details>
-        <summary>How do I delete my account?</summary>
-        <p>Open Settings and choose Delete Account. This permanently rer notes, so make sure you no longer need them before confirming.</p>
-      </details>
-      <details>
-        <summary>Does Note Essence support dark mode?</summary>
-        <p>Yes — Note Essence follows your device's appearance setting  and dark automatically.</p>
-      </details>
-    </div>
+<div class="wrap">
 
-    <h2>Contact Us</h2>
-    <div class="card">
-      <p style="margin-top:0;">
-        For anything not covered above — bug reports, feature requests, privacy questions, or account issues — email us and we'll get back to you as soon as we can.
-      </p>
-      <p style="margin-bottom:0;">
-        <a class="email" href="mailto:admin@noteessence.com">admin@note
-      </p>
-    </div>
+  <p class="eyebrow">Note Essence · Support</p>
+  <h1>We're here to help you keep your notes in order.</h1>
+  <p class="lede">Questions, feedback, or something not working the way it should — find quick answers below, or write to us directly.</p>
 
-    <footer>
-      © 2026 Note Essence. All rights reserved.
-    </footer>
+  <div class="contact-card">
+    <h2>Contact</h2>
+    <div class="contact-email"><a href="mailto:admin@noteessence.com">admin@noteessence.com</a></div>
+    <p class="contact-note">We read every message and reply within 1–2 business days.</p>
   </div>
+
+  <section class="faq">
+    <h2>Frequently Asked</h2>
+
+    <div class="entry">
+      <h3>How do I get started with Note Essence?</h3>
+      <p>Create an account at noteessence.com, verify your email, and your first notebook is ready to go. No setup required.</p>
+    </div>
+
+    <div class="entry">
+      <h3>Are my notes backed up automatically?</h3>
+      <p>Yes. Changes are saved continuously and synced across every device you're signed into.</p>
+    </div>
+
+    <div class="entry">
+      <h3>Can I export my notes?</h3>
+      <p>You can export individual notes or your entire library at any time from your account settings.</p>
+    </div>
+
+    <div class="entry">
+      <h3>How do I reset my password?</h3>
+      <p>Select "Forgot password" on the sign-in screen. A reset link will arrive in your inbox within a few minutes.</p>
+    </div>
+
+    <div class="entry">
+      <h3>How do I delete my account?</h3>
+      <p>Email us at <a href="mailto:admin@noteessence.com">admin@noteessence.com</a> from your account address and we'll take care of it, exports included on request.</p>
+    </div>
+
+    <div class="entry">
+      <h3>Something's broken — what should I include in my report?</h3>
+      <p>Let us know what you were doing, what you expected, and what happened instead. Screenshots help us fix it faster.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Note Essence</span>
+    <span>noteessence.com</span>
+  </footer>
+
+</div>
+
 </body>
 </html>
