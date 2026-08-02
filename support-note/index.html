@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Note Essence Support</title>
+<meta name="description" content="Support and contact information for the Note Essence app.">
+<style>
+  :root {
+    --navy: #0B3A70;
+    --cyan: #00E5E5;
+    --bg: #ffffff;
+    --bg-soft: #f4f7fb;
+    --text: #1a2433;
+    --text-muted: #57667a;
+    --border: #e2e8f0;
+    --card: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0b1220;
+      --bg-soft: #101a2c;
+      --text: #eef2f8;
+      --text-muted: #a3b0c2;
+      --border: #22304a;
+      --card: #101a2c;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+  header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 40px;
+  }
+  .logo {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    flex-shrink: 0;
+  }
+  h1 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  .tagline {
+    margin: 2px 0 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+  h2 {
+    font-size: 1.05rem;
+    margin: 40px 0 12px;
+    color: var(--navy);
+  }
+  @media (prefers-color-scheme: dark) {
+    h2 { color: var(--cyan); }
+  }
+  p { color: var(--text); }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 8px;
+  }
+  .contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--navy);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 12px 20px;
+    border-radius: 999px;
+    font-size: 0.95rem;
+  }
+  .contact-btn:hover { opacity: 0.9; }
+  .email {
+    color: var(--navy);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  @media (prefers-color-scheme: dark) {
+    .email { color: var(--cyan); }
+  }
+  .email:hover { text-decoration: underline; }
+  details {
+    border-bottom: 1px solid var(--border);
+    padding: 14px 0;
+  }
+  details:last-child { border-bottom: none; }
+  summary {
+    cursor: pointer;
+    font-weight: 600;
+    list-style: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::before {
+    content: "+";
+    display: inline-block;
+    width: 1.2em;
+    color: var(--navy);
+    font-weight: 700;
+  }
+  @media (prefers-color-scheme: dark) {
+    summary::before { color: var(--cyan); }
+  }
+  details[open] summary::before { content: "–"; }
+  details p {
+    margin: 10px 0 0 1.2em;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+  footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <svg class="logo" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Note Essence logo">
+        <rect width="48" height="48" rx="11" fill="#ffffff"/>
+        <text x="6" y="33" font-family="-apple-system, Helvetica, Arial, sans-serif" font-weight="800" font-size="26" fill="#0B3A70">N</text>
+        <text x="24" y="33" font-family="-apple-system, Helvetica, Aria="800" font-size="26" fill="#00E5E5">E</text>
+      </svg>
+      <div>
+        <h1>Note Essence Support</h1>
+        <p class="tagline">Help and contact information</p>
+      </div>
+    </header>
+
+    <div class="card">
+      <p style="margin-top:0;">
+        Need help with Note Essence, found a bug, or have feedback? We't any time.
+      </p>
+      <a class="contact-btn" href="mailto:admin@noteessence.com?subject>
+        ✉️ Email admin@noteessence.com
+      </a>
+    </div>
+
+    <h2>Frequently Asked Questions</h2>
+    <div class="card">
+      <details open>
+        <summary>How do I create and organize notes?</summary>
+        <p>Tap Add Note from your note list, write your content, and add tags to keep things organized. Use the search bar on the note list to instantly find any note by
+title or content.</p>
+      </details>
+      <details>
+        <summary>What's the difference between public and private notes?</summary>
+        <p>Each note can be marked public or private. Private notes arecan set your preferred default visibility for new notes in Settings.</p>
+      </details>
+      <details>
+        <summary>What do the Summarize, Wikipedia, and Translate buttons do?</summary>
+        <p>While editing a note, Summarize condenses your note into keya pulls in a quick reference extract based on your note's title, and Goog
+le Translate lets you translate your note's content into another language — all without leaving the editor.</p>
+      </details>
+      <details>
+        <summary>I didn't receive my email verification link.</summary>
+        <p>Check your spam or junk folder first. If it's still missing, you can request a new verification email from the app, or contact us at admin@noteessence.com and
+we'll help sort it out.</p>
+      </details>
+      <details>
+        <summary>How do I delete my account?</summary>
+        <p>Open Settings and choose Delete Account. This permanently rer notes, so make sure you no longer need them before confirming.</p>
+      </details>
+      <details>
+        <summary>Does Note Essence support dark mode?</summary>
+        <p>Yes — Note Essence follows your device's appearance setting  and dark automatically.</p>
+      </details>
+    </div>
+
+    <h2>Contact Us</h2>
+    <div class="card">
+      <p style="margin-top:0;">
+        For anything not covered above — bug reports, feature requests, privacy questions, or account issues — email us and we'll get back to you as soon as we can.
+      </p>
+      <p style="margin-bottom:0;">
+        <a class="email" href="mailto:admin@noteessence.com">admin@note
+      </p>
+    </div>
+
+    <footer>
+      © 2026 Note Essence. All rights reserved.
+    </footer>
+  </div>
+</body>
+</html>
