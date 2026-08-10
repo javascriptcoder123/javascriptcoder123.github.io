@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Companion Matched — Support</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #1a1a1a;
+    --muted: #5f6368;
+    --accent: #e0447a;
+    --accent-dark: #b8235a;
+    --card-bg: #faf7f8;
+    --border: #eee0e6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #121014;
+      --text: #f2eef0;
+      --muted: #b0a8ad;
+      --accent: #ff6a9c;
+      --accent-dark: #ff9dbe;
+      --card-bg: #1c181b;
+      --border: #2c2429;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+  }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 24px 80px;
+  }
+  header {
+    margin-bottom: 40px;
+  }
+  .logo-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: 30px;
+    margin: 0 0 8px;
+    letter-spacing: -0.02em;
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 17px;
+    margin: 0;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 40px 0 12px;
+    letter-spacing: -0.01em;
+  }
+  p { margin: 0 0 14px; }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px 22px;
+    margin-bottom: 16px;
+  }
+  .card h3 {
+    font-size: 16px;
+    margin: 0 0 8px;
+  }
+  .card p {
+    color: var(--muted);
+    margin: 0;
+    font-size: 15px;
+  }
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  a:hover { text-decoration: underline; }
+  .contact-box {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px 22px;
+    margin-top: 12px;
+  }
+  .contact-box .icon {
+    font-size: 24px;
+  }
+  footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo-badge">C</div>
+      <h1>Companion Matched Support</h1>
+      <p class="subtitle">Help with your account, matches, and messages.</p>
+    </header>
+
+    <h2>Frequently asked questions</h2>
+
+    <div class="card">
+      <h3>How do I sign in?</h3>
+      <p>Use Sign in with Apple, or enter your email to get a one-tap sign-in link — no password to remember. Just tap the link from your email on the same device to finish signing in.</p>
+    </div>
+
+    <div class="card">
+      <h3>How does matching work?</h3>
+      <p>Pick the interests you're into during setup. Your Discover deck is ranked by how many interests you share with each person — the more in common, the higher they appear. When you and someone else both like each other, that's a match, instantly.</p>
+    </div>
+
+    <div class="card">
+      <h3>I'm not receiving the sign-in email</h3>
+      <p>Check your spam or promotions folder first. If it's still not arriving, wait a minute and request a new link from the sign-in screen — links expire after a while for your security.</p>
+    </div>
+
+    <div class="card">
+      <h3>How do I block or report someone?</h3>
+      <p>Open a match's chat and tap the ⋯ menu in the top right, then choose Report or Block. Blocking removes them from your matches and Discover deck immediately.</p>
+    </div>
+
+    <div class="card">
+      <h3>How do I turn off notifications?</h3>
+      <p>Go to your device's Settings → Notifications → Companion Matched, and adjust alerts for new matches and messages there.</p>
+    </div>
+
+    <div class="card">
+      <h3>How do I delete my account or data?</h3>
+      <p>Email us at the address below with your account's email or username and we'll delete your profile and associated data.</p>
+    </div>
+
+    <h2>Still need help?</h2>
+    <div class="contact-box">
+      <span class="icon">✉️</span>
+      <div>
+        <p style="margin:0 0 2px; color:var(--text); font-weight:600;">Email support</p>
+        <a href="mailto:nchackerian@gmail.com">nchackerian@gmail.com</a>
+      </div>
+    </div>
+
+    <footer>
+      Companion Matched
+    </footer>
+  </div>
+</body>
+</html>
