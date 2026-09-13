@@ -1,0 +1,455 @@
+<title>ChessIQ AI Privacy Policy</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  :root {
+    --bg: #f6f7f3;
+    --surface: #ffffff;
+    --surface-raised: #ffffff;
+    --ink: #16211a;
+    --ink-soft: #55665c;
+    --ink-faint: #7c8b81;
+    --accent: #2e7d2e;
+    --accent-ink: #1f5c22;
+    --accent-wash: #e7f0e4;
+    --line: #dce3da;
+    --code-surface: #eef1ea;
+    --shadow: 0 1px 2px rgba(22, 33, 26, 0.04), 0 8px 24px rgba(22, 33, 26, 0.05);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0e1712;
+      --surface: #141e18;
+      --surface-raised: #17221b;
+      --ink: #f1efe6;
+      --ink-soft: #a7b5ab;
+      --ink-faint: #7c8b7f;
+      --accent: #63cb77;
+      --accent-ink: #8fde9e;
+      --accent-wash: #1b2b1f;
+      --line: #29352c;
+      --code-surface: #1c2820;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 8px 28px rgba(0, 0, 0, 0.28);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #0e1712;
+    --surface: #141e18;
+    --surface-raised: #17221b;
+    --ink: #f1efe6;
+    --ink-soft: #a7b5ab;
+    --ink-faint: #7c8b7f;
+    --accent: #63cb77;
+    --accent-ink: #8fde9e;
+    --accent-wash: #1b2b1f;
+    --line: #29352c;
+    --code-surface: #1c2820;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 8px 28px rgba(0, 0, 0, 0.28);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Public Sans", -apple-system, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 0 20px;
+    padding-block: 56px;
+  }
+
+  h1, h2 {
+    font-family: "Spectral", Georgia, "Times New Roman", serif;
+    text-wrap: balance;
+    margin: 0;
+    color: var(--ink);
+  }
+
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 52px;
+  }
+
+  a { color: var(--accent-ink); }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+
+  /* ---------- Header ---------- */
+
+  .header { display: flex; flex-direction: column; gap: 20px; }
+
+  .brand { display: flex; align-items: center; gap: 14px; }
+
+  .mark { width: 44px; height: 44px; border-radius: 11px; flex: none; box-shadow: var(--shadow); }
+
+  .brand-text h1 { font-size: 1.65rem; font-weight: 600; letter-spacing: -0.01em; }
+
+  .kicker {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-top: 3px;
+  }
+
+  .lede { font-size: 1.05rem; color: var(--ink-soft); max-width: 62ch; }
+  .lede strong { color: var(--ink); font-weight: 600; }
+
+  .updated {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+  }
+
+  /* ---------- Facts strip (the TL;DR) ---------- */
+
+  .facts {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+  }
+
+  .fact { flex: 1 1 150px; padding: 16px 18px; border-right: 1px solid var(--line); }
+  .fact:last-child { border-right: none; }
+
+  .fact-label {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .fact-value { font-weight: 600; font-size: 0.94rem; color: var(--accent-ink); }
+
+  /* ---------- Sections ---------- */
+
+  section { display: flex; flex-direction: column; gap: 14px; }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 12px;
+  }
+
+  .section-head h2 { font-size: 1.25rem; font-weight: 600; }
+
+  .section-num {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.7rem;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+
+  section p, section li { color: var(--ink-soft); max-width: 66ch; }
+  section p + p { margin-top: -6px; }
+
+  section strong { color: var(--ink); font-weight: 600; }
+
+  section ul { display: flex; flex-direction: column; gap: 10px; padding-left: 1.2em; margin: 0; }
+  section li::marker { color: var(--accent-ink); }
+
+  code {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.85em;
+    background: var(--code-surface);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+    color: var(--ink);
+  }
+
+  .service-list { display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--line); }
+  .service {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .service-name { font-weight: 600; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.85rem; padding-top: 2px; }
+  .service-desc { color: var(--ink-soft); }
+
+  @media (max-width: 480px) {
+    .service { grid-template-columns: 1fr; gap: 4px; }
+    .fact { flex: 1 1 45%; }
+  }
+
+  /* ---------- Contact ---------- */
+
+  .contact-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 28px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .contact-card p { color: var(--ink-soft); max-width: 58ch; }
+
+  .mailto {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--accent);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 12px 20px;
+    border-radius: 9px;
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .mailto:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(46, 125, 46, 0.3); }
+  .mailto svg { width: 16px; height: 16px; }
+  .mailto-addr { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.85rem; color: var(--ink-faint); }
+
+  @media (prefers-reduced-motion: reduce) { .mailto { transition: none; } }
+
+  /* ---------- Footer ---------- */
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+  }
+  footer a { color: var(--ink-faint); }
+</style>
+
+<div class="page">
+
+  <header class="header">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ChessIQ AI icon">
+        <defs>
+          <linearGradient id="markBg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#234631"/>
+            <stop offset="1" stop-color="#0b120e"/>
+          </linearGradient>
+          <linearGradient id="markAccent" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0" stop-color="#2e7d2e"/>
+            <stop offset="1" stop-color="#6bd97d"/>
+          </linearGradient>
+        </defs>
+        <rect width="88" height="88" rx="19" fill="url(#markBg)"/>
+        <rect x="70" y="14" width="8" height="60" rx="3" fill="#0a130e" stroke="#3a5346" stroke-width="0.6"/>
+        <rect x="71.6" y="40" width="4.8" height="32" rx="2" fill="url(#markAccent)"/>
+        <g transform="translate(3,6) scale(1.62)">
+          <g fill="none" fill-rule="evenodd" stroke="#141f17" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+            <path fill="#f5f2e7" d="M22 10c10.5 1 16.5 8 16 29H15c0-9 10-6.5 8-21"/>
+            <path fill="#f5f2e7" d="M24 18c.38 2.91-5.55 7.37-8 9-3 2-2.82 4.34-5 4-1.042-.94 1.41-3.04 0-3-1 0 .19 1.23-1 2-1 0-4.003 1-4-4 0-2 6-12 6-12s1.89-1.9 2-3.5c-.73-.994-.5-2-.5-3 1-1 3 2.5 3 2.5h2s.78-1.992 2.5-3c1 0 1 3 1 3"/>
+            <path fill="#141f17" d="M9.5 25.5a.5.5 0 1 1-1 0 .5.5 0 1 1 1 0m5.433-9.75a.5 1.5 30 1 1-.866-.5.5 1.5 30 1 1 .866.5"/>
+          </g>
+        </g>
+      </svg>
+      <div class="brand-text">
+        <h1>ChessIQ AI</h1>
+        <div class="kicker">Privacy Policy</div>
+      </div>
+    </div>
+    <p class="lede">
+      ChessIQ AI is built to run <strong>entirely on your device</strong>. This
+      policy explains, plainly, what that means for your data — because the
+      short version is: there isn't much to explain.
+    </p>
+    <p class="updated">Last updated September 13, 2026</p>
+  </header>
+
+  <div class="facts">
+    <div class="fact">
+      <span class="fact-label">Account required</span>
+      <span class="fact-value">No</span>
+    </div>
+    <div class="fact">
+      <span class="fact-label">Data sent to us</span>
+      <span class="fact-value">None</span>
+    </div>
+    <div class="fact">
+      <span class="fact-label">Analytics / trackers</span>
+      <span class="fact-value">None</span>
+    </div>
+    <div class="fact">
+      <span class="fact-label">Data sold or shared</span>
+      <span class="fact-value">Never</span>
+    </div>
+  </div>
+
+  <section aria-labelledby="collect-heading">
+    <div class="section-head">
+      <h2 id="collect-heading">What ChessIQ AI collects</h2>
+      <span class="section-num">§1</span>
+    </div>
+    <p>
+      Nothing. ChessIQ AI has no account system, no backend server, and no
+      way for us to receive your games, your analysis, or any information
+      about you. Everything the app works with falls into one of three
+      places, and all three stay on your device:
+    </p>
+    <ul>
+      <li>
+        <strong>Games you import.</strong> A game you fetch from Lichess or
+        Chess.com, or paste in as a PGN, is stored in a local database on
+        your phone so the app doesn't have to re-fetch or re-analyze it
+        next time.
+      </li>
+      <li>
+        <strong>Analysis results.</strong> The move labels, evaluation
+        numbers, and accuracy scores ChessIQ AI computes for a game are
+        stored alongside it, locally, in that same on-device database.
+      </li>
+      <li>
+        <strong>Your preferences.</strong> Settings like search depth,
+        whether narration is on, and which voice and speech rate you've
+        chosen are saved to your device's standard app-preferences storage
+        (<code>UserDefaults</code>).
+      </li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="analysis-heading">
+    <div class="section-head">
+      <h2 id="analysis-heading">How analysis and narration work</h2>
+      <span class="section-num">§2</span>
+    </div>
+    <p>
+      Game analysis runs on a chess engine bundled inside the app, executing
+      on your device's own processor — a position is never sent anywhere to
+      be evaluated. Spoken narration works the same way, using iOS's
+      built-in text-to-speech (<code>AVSpeechSynthesizer</code>) to read
+      moves aloud locally. Neither feature makes a network request or talks
+      to any third-party service.
+    </p>
+  </section>
+
+  <section aria-labelledby="services-heading">
+    <div class="section-head">
+      <h2 id="services-heading">Where network requests go</h2>
+      <span class="section-num">§3</span>
+    </div>
+    <p>
+      ChessIQ AI makes network requests in exactly one situation: when you
+      choose to import games by entering a Lichess or Chess.com username.
+      That request goes directly from your device to that service's own
+      public API — never through a server of ours, because we don't operate
+      one.
+    </p>
+    <div class="service-list">
+      <div class="service">
+        <div class="service-name">Lichess</div>
+        <div class="service-desc">
+          Fetches your public game history for the username you enter, via
+          Lichess's public games API. Governed by
+          <a href="https://lichess.org/privacy" target="_blank" rel="noopener">Lichess's own privacy policy</a>.
+        </div>
+      </div>
+      <div class="service">
+        <div class="service-name">Chess.com</div>
+        <div class="service-desc">
+          Fetches your public game archives for the username you enter, via
+          Chess.com's Published-Data API. Governed by
+          <a href="https://www.chess.com/legal/privacy" target="_blank" rel="noopener">Chess.com's own privacy policy</a>.
+        </div>
+      </div>
+    </div>
+    <p>
+      Pasting a PGN directly, instead of importing by username, makes no
+      network request at all.
+    </p>
+  </section>
+
+  <section aria-labelledby="thirdparty-heading">
+    <div class="section-head">
+      <h2 id="thirdparty-heading">Analytics, ads, and tracking</h2>
+      <span class="section-num">§4</span>
+    </div>
+    <p>
+      ChessIQ AI doesn't include any analytics SDK, crash reporter, ad
+      network, or tracking library of any kind. We have no way to see how
+      you use the app, and no interest in building one.
+    </p>
+  </section>
+
+  <section aria-labelledby="deletion-heading">
+    <div class="section-head">
+      <h2 id="deletion-heading">Deleting your data</h2>
+      <span class="section-num">§5</span>
+    </div>
+    <p>
+      Because everything lives only on your device, deleting the app
+      deletes everything with it — your imported games, your analysis, and
+      your settings. There's no account to close and no server-side copy
+      to ask us to remove, since none exists. If your device backs up to
+      iCloud or your computer, that locally stored data may be included in
+      those backups the same way any other app's data is — subject to your
+      own iOS and iCloud backup settings, not anything ChessIQ AI controls.
+    </p>
+  </section>
+
+  <section aria-labelledby="children-heading">
+    <div class="section-head">
+      <h2 id="children-heading">Children's privacy</h2>
+      <span class="section-num">§6</span>
+    </div>
+    <p>
+      ChessIQ AI is intended for a general audience and does not knowingly
+      collect personal information from anyone, including children — since
+      it does not collect personal information from anyone at all.
+    </p>
+  </section>
+
+  <section aria-labelledby="changes-heading">
+    <div class="section-head">
+      <h2 id="changes-heading">Changes to this policy</h2>
+      <span class="section-num">§7</span>
+    </div>
+    <p>
+      If ChessIQ AI's data practices ever change — for example, if a future
+      version adds an optional cloud feature — this page will be updated
+      first, and the "last updated" date at the top will change to match.
+    </p>
+  </section>
+
+  <section aria-labelledby="contact-heading">
+    <div class="section-head">
+      <h2 id="contact-heading">Contact</h2>
+      <span class="section-num">§8</span>
+    </div>
+    <div class="contact-card">
+      <p>Questions about this policy or how ChessIQ AI handles data go here.</p>
+      <a class="mailto" href="mailto:nchackerian@gmail.com?subject=ChessIQ%20AI%20Privacy%20Question">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m4 6 8 7 8-7"/></svg>
+        Email us
+      </a>
+      <span class="mailto-addr">nchackerian@gmail.com</span>
+    </div>
+  </section>
+
+  <footer>
+    <span>&copy; 2026 ChessIQ AI</span>
+    <a href="index.html">Support &amp; FAQ</a>
+  </footer>
+
+</div>
