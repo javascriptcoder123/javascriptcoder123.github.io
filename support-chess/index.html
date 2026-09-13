@@ -1,4 +1,498 @@
+<title>ChessIQ AI Support</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
-<!doctype html><html lang="en" data-frame-uuid="2574196e-d4a0-422a-a429-e9b12d42b86f"><head><meta property="og:title" content="Claude Artifact"><meta name="twitter:title" content="Claude Artifact"><meta name="description" content="Try out Artifacts created by Claude users"><meta property="og:description" content="Try out Artifacts created by Claude users"><meta name="twitter:description" content="Try out Artifacts created by Claude users"><meta property="og:image" content="https://claude.ai/images/claude_ogimage.png"><meta name="twitter:image" content="https://claude.ai/images/claude_ogimage.png"><meta property="og:image:width" content="1138"><meta property="og:image:height" content="640"><meta property="og:image:alt" content="Claude Artifact"><meta name="twitter:card" content="summary"><meta name="robots" content="noindex, nofollow"><link rel="preconnect" href="https://assets-proxy.anthropic.com" crossorigin><link rel="dns-prefetch" href="https://assets-proxy.anthropic.com"><meta name="build-timestamp" content="1789173803"><meta name="build-git-hash" content="3445de0a061521f3abb49d3285ebc7e177c12e5f"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><meta name="referrer" content="no-referrer"><title>Claude Artifact</title><script nonce="m13PfmbYvyYfArMRuVIq7A==">window.__frameInlineProbe=new Error,function(e,t,o){try{var n=window===top&&history.state,r=n&&n.__tempLocation;if(r&&void 0===n.__tempKey&&"string"==typeof r.href){var a=new URL(r.href,location.origin);a.origin===location.origin&&(location.replace(a.href),e.leaving="")}}catch{}if(t?.embedded&&(e.embedded=e.host=""),parent!==window){var i=location.origin,c=location.ancestorOrigins;if(c)c[0]===i&&c[c.length-1]===i&&(e.embedded="");else if(parent===top&&document.referrer)try{new URL(document.referrer).origin===i&&(e.embedded="")}catch{}}"embedded"in e&&"none"===(t?.chrome??o.get("chrome"))&&(e.chrome="none",document.querySelector("meta[name=viewport]").setAttribute("content","width=device-width,initial-scale=1,viewport-fit=cover"));var d="desktop"===t?.platform?"host-tools":"comment-mode",s="embedded"in e?t?null!=t.hostcaps?t.hostcaps:(" "+o.get("hostcaps")+" ").indexOf(" "+d+" ")<0?"":d:o.get("hostcaps"):"",m=String(s||"").split(" ").filter(function(e,t,o){return("comment-mode"===e||"page-comments"===e||"artifact-nav"===e||"comment-summon"===e||"open-in-claude"===e||"open-chat"===e||"cloud-session"===e||"cowork-task"===e||"no-send-all"===e||"confirm-page-sends"===e||"viewer-context"===e||"chrome"===e||"export"===e||"chrome-readonly"===e||"selection-menu"===e||"chat-beside"===e||"header"===e||"duplicate"===e||"sheet-arrow"===e||"presence"===e||"host-tools"===e||"context-card"===e||"context-send"===e||"host-nav"===e||"url-anchor"===e||"promote-strip"===e||"edge-to-edge"===e||"save-file"===e||"host-keys"===e)&&o.indexOf(e)===t});m.length&&(e.hostcaps=m.join(" "));var l={mode:["light","dark","system"],platform:["web","desktop"],font:["anthropic","system"]};for(var h of Object.keys(l)){var p=t?.[h]??o.get(h[0]);if("mode"===h&&null==t?.mode&&!("embedded"in e))try{var f=JSON.parse(localStorage.getItem("LSS-userThemeMode"));f&&"object"==typeof f&&(f=f.value),"light"!==f&&"dark"!==f||(p=f)}catch(e){}l[h].includes(p)&&(e[h]=p)}}(document.documentElement.dataset,window.claudeDesktopArtifactPane,new URLSearchParams(location.search))</script><script nonce="m13PfmbYvyYfArMRuVIq7A==">!function(){try{var e=document.documentElement.dataset,t=e.frameUuid;if(!t||"leaving"in e)return;var a=/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/,r=new URLSearchParams(location.search),n=r.get("org"),o=(document.cookie.match(/(?:^|;\s*)lastActiveOrg=([^;]*)/)||[])[1],s=n&&a.test(n)?n:o&&a.test(o)?o:null,i=self===top&&!("embedded"in document.documentElement.dataset),c=r.get("via"),d=null!==c?c:i?"user_open":"embedded_view",l=r.get("sk"),u=new URLSearchParams;s&&u.set("org",s),d&&u.set("via",d),l&&/^[A-Za-z0-9_-]{16,64}$/.test(l)&&u.set("sk",l);var m=location.pathname.split("/").pop()||"";try{m=decodeURIComponent(m)}catch(e){}var f="";m.toLowerCase().slice(-37)==="-"+t.toLowerCase()?f=m.slice(0,m.length-37):m.length>23&&"-"===m.charAt(m.length-23)&&/^[1-9A-HJ-NP-Za-km-z]{22}$/.test(m.slice(-22))&&(f=m.slice(0,m.length-23)),/^[a-z0-9][a-z0-9-]{0,59}$/.test(f)&&u.set("vanity",f);var h=window.__frameSessionId;null==h&&(h=window.__frameSessionId=crypto.randomUUID?crypto.randomUUID():"");var g="initial";try{var v=function(e){try{var t=sessionStorage.getItem(e);if(!h||!t)return!1;var a=e+"_claim",r=h+"|"+t,n=sessionStorage.getItem(a);if(n===r)return!0;var o=n?n.split("|"):[],s=Number(o[2]);return!(3!==o.length||"reload"!==o[0]||o[1]!==t||!Number.isFinite(s)||Date.now()-s>=3e4)&&(sessionStorage.setItem(a,r),sessionStorage.getItem(a)===r)}catch(e){return!1}},_=(sessionStorage.getItem("frame_chunk_reload")||"").split(":"),w=Number(_[2]),p=_[0]===t&&("chrome"===_[1]||"deferred"===_[1]||"broker"===_[1])&&Number.isFinite(w)&&Date.now()-w<3e5,b="frame_hot_hard_reload:"+t,S=(sessionStorage.getItem(b)||"").split(":"),I=Number(S[2]),y=S[0]===t&&Number.isFinite(I)&&Date.now()-I<3e5,k=function(e){var a=sessionStorage.getItem(e);if(!a)return!1;var r=a.lastIndexOf(":"),n=Number(a.slice(r+1));return a.slice(0,r)===t&&Number.isFinite(n)&&Date.now()-n<3e5}("frame_pin_reload")&&v("frame_pin_reload"),P=p&&v("frame_chunk_reload"),F=y&&v(b);(k||P||F)&&(g="reboot")}catch(e){}u.set("bk",g);var A="/api/frame/"+t+"?"+u.toString(),N=function(e,t){var a=null==e?null:e.toLowerCase();return null!==a&&-1!==t.indexOf(a)?a:null},U=navigator.userAgent,C={"X-Frame-CP":"go","X-Frame-Platform":N(r.get("platform"),["web","desktop","ios","android","cli"])||(U.includes(" Electron/")?"desktop":/Android/.test(U)?"android":/iPad|iPhone|iPod/.test(U)||U.includes("Macintosh")&&navigator.maxTouchPoints>1?"ios":"web")},D=N(r.get("surface"),["chat","cowork","code","slack","teams","standalone"])||(i?"standalone":"");D&&(C["X-Frame-Surface"]=D);var X=document.head.querySelector('meta[name="build-timestamp"]');X&&X.content&&(C["X-Frame-Client-Version"]=X.content),h&&(C["X-Frame-Session-Id"]=h);var x=function(){return fetch(A,{credentials:"same-origin",headers:C,priority:"high",signal:AbortSignal.timeout(2e4)})};if(parent!==window&&"embedded"in document.documentElement.dataset){var L=null;try{var z=parent.__frameHostBoot;(L=z&&z[A]||null)&&delete z[A]}catch(e){L=null}if(L&&L.res&&"function"==typeof L.res.then){L.sid&&(C["X-Frame-Session-Id"]=window.__frameSessionId=L.sid);var E=L.res.then(function(e){try{var t=204===e.status||205===e.status||304===e.status;return new Response(t?null:e.body,{status:e.status,statusText:e.statusText,headers:e.headers})}catch(e){return x()}});return E.catch(function(){}),void(window.__frameBootPrefetch={url:A,res:E})}}var R=x();if(R.catch(function(){}),window.__frameBootPrefetch={url:A,res:R},!s){var $=fetch("/api/account",{credentials:"same-origin",signal:AbortSignal.timeout(8e3)});$.catch(function(){}),window.__frameAccountPrefetch={res:$}}}catch(e){}}()</script><link rel="preload" as="font" type="font/woff2" crossorigin href="https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/cc27851ad-DDVos-BJ.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/c0f671921-DGF2zOSD.woff2"><script type="module" crossorigin src="https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/frame-shell-BOOnEGvu.js" nonce="m13PfmbYvyYfArMRuVIq7A=="></script><link rel="modulepreload" crossorigin href="https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/preload-helper-BWst14uo.js"><link rel="modulepreload" crossorigin href="https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/shared-frame-boot-DRe9blhz.js"><link rel="modulepreload" crossorigin href="https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/frame-shell-chrome-D6lzGy_b.js"><link rel="modulepreload" crossorigin href="https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/vendor-frame-CvMkXlR3.js"><link rel="modulepreload" crossorigin href="https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/rolldown-runtime-CAJkiChf.js"><link rel="modulepreload" crossorigin href="https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/shared-frame-DZMSKis1.js"><link rel="modulepreload" crossorigin href="https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/frame-shell-deferred-CNXzBNn-.js"><link rel="modulepreload" crossorigin href="https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/frame-shell-broker-B8pX5A0r.js" fetchpriority="low"><style nonce="m13PfmbYvyYfArMRuVIq7A==">:root{--font-anthropic-sans:"anthropic-sans", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif}@font-face{font-family:anthropic-sans;src:url(https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/cc27851ad-DDVos-BJ.woff2)format("woff2");font-weight:300 800;font-style:normal;font-display:swap;font-feature-settings:"dlig" 0}@font-face{font-family:anthropic-sans;src:url(https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/c9d3a3a49-CJtkx3-S.woff2)format("woff2");font-weight:300 800;font-style:italic;font-display:swap;font-feature-settings:"dlig" 0}:root{--font-anthropic-serif:"anthropic-serif", ui-serif, Georgia, "Times New Roman", serif}@font-face{font-family:anthropic-serif;src:url(https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/c66fc489e-2VcCjn5t.woff2)format("woff2");font-weight:300 800;font-style:normal;font-display:swap;font-feature-settings:"dlig" 0}@font-face{font-family:anthropic-serif;src:url(https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/cc410af59-Dcb-9NUS.woff2)format("woff2");font-weight:300 800;font-style:italic;font-display:swap;font-feature-settings:"dlig" 0}:root{--bg:#fff;--fg:#0b0b0b;--mut:#52514e;--spin:#898781;--line:#0b0b0b1a;--div:#0b0b0b0d;--bord:#0b0b0b33;--hov:#0b0b0b0d;--surf:#fff;--brand:#c6613f;--primary:#0b0b0b;--on-primary:#fff}@media (prefers-color-scheme:dark){html:not([data-mode]){--bg:#1a1a19;--fg:#f0efec;--mut:#c3c2b7;--line:#ffffff1a;--div:#ffffff0d;--bord:#fff3;--hov:#ffffff13;--surf:#20201f;--primary:#fff;--on-primary:#0b0b0b}}html[data-mode=light]{--lightningcss-light:initial;--lightningcss-dark: ;color-scheme:light}html[data-mode=dark]{--bg:#1a1a19;--fg:#f0efec;--mut:#c3c2b7;--line:#ffffff1a;--div:#ffffff0d;--bord:#fff3;--hov:#ffffff13;--surf:#20201f;--primary:#fff;--on-primary:#0b0b0b;--lightningcss-light: ;--lightningcss-dark:initial;color-scheme:dark}@font-face{font-family:Anthropicons-Variable;src:url(https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/c0f671921-DGF2zOSD.woff2)format("woff2-variations");font-weight:400 700;font-display:block}@property --bar{syntax:"<length>";inherits:true;initial-value:0}:root{--bar-h:calc(2.5rem * var(--cds-rem-scale,1));--strip:0px;--bar:calc(var(--bar-h) + var(--strip));--lightningcss-light:initial;--lightningcss-dark: ;color-scheme:light dark}@media (prefers-color-scheme:dark){:root{--lightningcss-light: ;--lightningcss-dark:initial}}html[data-promote-strip]{--strip:2.25rem}@layer{*{box-sizing:border-box;margin:0;padding:0}button{font:inherit;border:0;background:0 0;cursor:pointer;color:inherit}}html,body{overscroll-behavior:none;background:var(--bg);height:100%;color:var(--fg);overflow:hidden}body{font:13px/1.4 anthropic-sans,-apple-system,BlinkMacSystemFont,system-ui,sans-serif}#hdr{height:var(--bar-h);justify-content:space-between;align-items:center;gap:8px;padding:0 12px;display:flex;position:relative}html:not([data-embedded]) #hdr,html:not([data-embedded]) #hdr-degraded{border-bottom:1px solid var(--div)}.l,.r{align-items:center;gap:8px;display:flex}.l{flex:1;min-width:0}.r{flex:none}.byline{font-size:var(--cds-font-size-caption,.75rem);color:var(--mut);white-space:nowrap;text-overflow:ellipsis;flex-shrink:0;max-width:312px;overflow:hidden}.l>button[data-title-menu]{flex-shrink:1000;min-width:0;margin-left:-6px;overflow:hidden}.l button[data-title-menu]>span,.l button[data-title-menu] .truncate{min-width:0}.skel{background:var(--hov);border-radius:4px;display:inline-block}.skel-title{width:8em;height:1em}.skel-avatar{border-radius:50%;width:24px;height:24px}.degraded-title{white-space:nowrap;text-overflow:ellipsis;font-size:13px;font-weight:400;overflow:hidden}#hdr-degraded,body.chrome-degraded #hdr{display:none}body.chrome-degraded #hdr-degraded{height:var(--bar-h);align-items:center;gap:8px;padding:0 12px;display:flex}@media (width<=768px){html:not([data-embedded]) .l{grid-template-columns:minmax(0,1fr);place-items:center start;gap:0;display:grid}html:not([data-embedded]) .l>*{max-width:100%}html:not([data-embedded]) .l>.byline{margin-top:-3px}html:not([data-embedded]) .l>[data-storage]{margin-top:-4px}}html[data-embedded]{--bar-h:calc(2.625rem * var(--cds-rem-scale,1))}html[data-embedded] #hdr{padding:0 8px}html[data-embedded] .byline{flex-shrink:1;max-width:100%}html[data-embedded] .skel-title,html[data-embedded] .skel-avatar,html[data-embedded][data-chrome=none] #hdr,html[data-embedded][data-chrome=none] #hdr-degraded,html[data-header-hidden] #hdr,html[data-header-hidden] #hdr-degraded,html[data-header-hidden] [data-chrome-pill],html[data-header-hidden] [data-sharing-status][data-host-chrome]{display:none}html[data-embedded][data-chrome=none],html[data-header-hidden]{--bar:0px}html[data-host][data-chrome=none]{--bar:env(safe-area-inset-top,0px)}html[data-embedded][data-chrome=none][data-promote-strip]:not([data-header-hidden]){--bar:var(--strip)}html[data-host][data-chrome=none][data-promote-strip]:not([data-header-hidden]){--bar:calc(env(safe-area-inset-top,0px) + var(--strip))}[data-sharing-status][data-host-chrome]{inset:calc(var(--bar) - var(--strip)) 0 auto;height:var(--strip);position:absolute}main{inset:var(--bar) 0 0 0;display:flex;position:absolute}html[data-host][data-chrome=none][data-extended-edges~=top] main{top:0}html[data-host][data-chrome=none][data-extended-edges~=top] #loading{top:var(--bar)}#frame-slot{flex:1;min-width:0;position:relative}#loading{justify-content:center;align-items:center;display:flex;position:absolute;inset:0}#loading[hidden]{display:none}#loading.slow{text-align:center;color:var(--mut);flex-direction:column;gap:12px;padding:0 24px;font-size:13px}#loading.slow>button{order:1}#loading:after{content:"";box-sizing:border-box;background:conic-gradient(transparent 40%, var(--spin)) border-box, linear-gradient(var(--line), var(--line)) border-box;border:2px solid #0000;border-radius:50%;width:20px;height:20px;animation:1s linear infinite spin;mask:radial-gradient(farthest-side,#0000 calc(100% - 2px),#000 calc(100% - 1.5px))}@keyframes spin{to{transform:rotate(360deg)}}#frame-content{opacity:0;border:0;width:100%;height:100%;transition:opacity .12s;position:absolute;inset:0}#frame-slot>iframe.swap:not(.ready){opacity:0;pointer-events:none;border:0;width:100%;height:100%;position:absolute;inset:0}#frame-slot>iframe.swap.hot-under:not(.ready){opacity:1}#frame-slot>iframe.hot-under~#frame-content{background:var(--bg)}#frame-slot>iframe.retired{opacity:0;pointer-events:none;border:0;width:100%;height:100%;position:absolute;inset:0}#frame-content.swap{transition:none}#frame-content.swap.crossfade{transition:opacity .12s}#frame-slot>iframe.fading-out{opacity:1;pointer-events:none;border:0;width:100%;height:100%;position:absolute;inset:0}#frame-content.ready{opacity:1}@media (prefers-reduced-motion:reduce){#loading:after{animation:none}#frame-content{transition:none}}body.err #hdr,body.err #hdr-degraded,#err[hidden]{display:none}#err{text-align:center;color:var(--fg);place-content:safe center;gap:8px;padding:96px 16px 128px;display:grid;position:absolute;inset:0;overflow-y:auto}
-@font-face{font-family:Anthropicons-Variable;src:url(https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/c0f671921-DGF2zOSD.woff2)format("woff2-variations");font-weight:400 700;font-display:block}
-</style><meta name="shell-inline-span" content="5687"><meta name="robots" content="noindex, nofollow"><link rel="preconnect" href="https://2574196e-d4a0-422a-a429-e9b12d42b86f.frame.claudeusercontent.com"></head><body><header id="hdr" tabindex="-1" aria-label="Artifact controls"><div class="l" aria-hidden="true"><span class="skel skel-title"></span></div><div class="r" aria-hidden="true"><span class="skel skel-avatar"></span></div></header><div id="hdr-degraded"><span class="degraded-title"></span> <span class="byline">Content is user-generated and unverified.</span></div><main><div id="frame-slot" data-frame-uuid="2574196e-d4a0-422a-a429-e9b12d42b86f" data-frame-uchost="2574196e-d4a0-422a-a429-e9b12d42b86f.frame.claudeusercontent.com" data-frame-tophost="2574196e-d4a0-422a-a429-e9b12d42b86f-top.frame.claudeusercontent.com"><div id="loading"><div class="loading-status" role="status" aria-label="Loading" tabindex="-1"></div></div></div></main><div id="err" hidden></div></body></html>
+  :root {
+    --bg: #f6f7f3;
+    --surface: #ffffff;
+    --surface-raised: #ffffff;
+    --ink: #16211a;
+    --ink-soft: #55665c;
+    --ink-faint: #7c8b81;
+    --accent: #2e7d2e;
+    --accent-ink: #1f5c22;
+    --accent-wash: #e7f0e4;
+    --line: #dce3da;
+    --code-surface: #eef1ea;
+    --shadow: 0 1px 2px rgba(22, 33, 26, 0.04), 0 8px 24px rgba(22, 33, 26, 0.05);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0e1712;
+      --surface: #141e18;
+      --surface-raised: #17221b;
+      --ink: #f1efe6;
+      --ink-soft: #a7b5ab;
+      --ink-faint: #7c8b7f;
+      --accent: #63cb77;
+      --accent-ink: #8fde9e;
+      --accent-wash: #1b2b1f;
+      --line: #29352c;
+      --code-surface: #1c2820;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 8px 28px rgba(0, 0, 0, 0.28);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #0e1712;
+    --surface: #141e18;
+    --surface-raised: #17221b;
+    --ink: #f1efe6;
+    --ink-soft: #a7b5ab;
+    --ink-faint: #7c8b7f;
+    --accent: #63cb77;
+    --accent-ink: #8fde9e;
+    --accent-wash: #1b2b1f;
+    --line: #29352c;
+    --code-surface: #1c2820;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 8px 28px rgba(0, 0, 0, 0.28);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Public Sans", -apple-system, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 0 20px;
+    padding-block: 56px;
+  }
+
+  h1, h2 {
+    font-family: "Spectral", Georgia, "Times New Roman", serif;
+    text-wrap: balance;
+    margin: 0;
+    color: var(--ink);
+  }
+
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 52px;
+  }
+
+  a { color: var(--accent-ink); }
+  a:focus-visible, button:focus-visible, .mailto:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+
+  /* ---------- Header ---------- */
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .mark {
+    width: 44px;
+    height: 44px;
+    border-radius: 11px;
+    flex: none;
+    box-shadow: var(--shadow);
+  }
+
+  .brand-text h1 {
+    font-size: 1.65rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .kicker {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-top: 3px;
+  }
+
+  .lede {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    max-width: 62ch;
+  }
+  .lede strong { color: var(--ink); font-weight: 600; }
+
+  /* ---------- Facts strip ---------- */
+
+  .facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+  }
+
+  .fact {
+    flex: 1 1 150px;
+    padding: 16px 18px;
+    border-right: 1px solid var(--line);
+  }
+  .fact:last-child { border-right: none; }
+
+  .fact-label {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .fact-value {
+    font-weight: 600;
+    font-size: 0.94rem;
+  }
+
+  /* ---------- Sections ---------- */
+
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 12px;
+  }
+
+  .section-head h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+
+  .section-note {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.7rem;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+
+  /* ---------- FAQ ---------- */
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .faq-item {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .faq-item:last-child { border-bottom: none; padding-bottom: 4px; }
+
+  .faq-q {
+    font-family: "Spectral", Georgia, serif;
+    font-size: 1.08rem;
+    font-weight: 600;
+  }
+
+  .faq-a {
+    color: var(--ink-soft);
+    max-width: 65ch;
+  }
+  .faq-a code {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.85em;
+    background: var(--code-surface);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+    color: var(--ink);
+  }
+
+  /* Move-classification legend, reused from the in-app move list */
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .chip {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    color: var(--ink-soft);
+    background: var(--surface);
+  }
+  .chip.best { border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); color: var(--accent-ink); }
+  .chip.warn { border-color: color-mix(in srgb, #b5842a 45%, var(--line)); color: #8a6318; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .chip.warn { color: #e0b45a; }
+  }
+  :root[data-theme="dark"] .chip.warn { color: #e0b45a; }
+  .chip.bad { border-color: color-mix(in srgb, #b23a3a 45%, var(--line)); color: #a23434; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .chip.bad { color: #e28080; }
+  }
+  :root[data-theme="dark"] .chip.bad { color: #e28080; }
+
+  /* ---------- Contact ---------- */
+
+  .contact-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 28px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contact-card p {
+    color: var(--ink-soft);
+    max-width: 58ch;
+  }
+
+  .mailto {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--accent);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 12px 20px;
+    border-radius: 9px;
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+  }
+  .mailto:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(46, 125, 46, 0.3); }
+  .mailto svg { width: 16px; height: 16px; }
+
+  .mailto-addr {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+  }
+
+  /* ---------- Footer ---------- */
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mailto { transition: none; }
+  }
+
+  @media (max-width: 480px) {
+    .fact { flex: 1 1 45%; border-right: none; border-bottom: 1px solid var(--line); }
+    .fact:nth-child(2n) { border-right: none; }
+  }
+</style>
+
+<div class="page">
+
+  <header class="header">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ChessIQ AI icon">
+        <defs>
+          <linearGradient id="markBg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#234631"/>
+            <stop offset="1" stop-color="#0b120e"/>
+          </linearGradient>
+          <linearGradient id="markAccent" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0" stop-color="#2e7d2e"/>
+            <stop offset="1" stop-color="#6bd97d"/>
+          </linearGradient>
+        </defs>
+        <rect width="88" height="88" rx="19" fill="url(#markBg)"/>
+        <rect x="70" y="14" width="8" height="60" rx="3" fill="#0a130e" stroke="#3a5346" stroke-width="0.6"/>
+        <rect x="71.6" y="40" width="4.8" height="32" rx="2" fill="url(#markAccent)"/>
+        <g transform="translate(3,6) scale(1.62)">
+          <g fill="none" fill-rule="evenodd" stroke="#141f17" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+            <path fill="#f5f2e7" d="M22 10c10.5 1 16.5 8 16 29H15c0-9 10-6.5 8-21"/>
+            <path fill="#f5f2e7" d="M24 18c.38 2.91-5.55 7.37-8 9-3 2-2.82 4.34-5 4-1.042-.94 1.41-3.04 0-3-1 0 .19 1.23-1 2-1 0-4.003 1-4-4 0-2 6-12 6-12s1.89-1.9 2-3.5c-.73-.994-.5-2-.5-3 1-1 3 2.5 3 2.5h2s.78-1.992 2.5-3c1 0 1 3 1 3"/>
+            <path fill="#141f17" d="M9.5 25.5a.5.5 0 1 1-1 0 .5.5 0 1 1 1 0m5.433-9.75a.5 1.5 30 1 1-.866-.5.5 1.5 30 1 1 .866.5"/>
+          </g>
+        </g>
+      </svg>
+      <div class="brand-text">
+        <h1>ChessIQ AI</h1>
+        <div class="kicker">Support &amp; FAQ</div>
+      </div>
+    </div>
+    <p class="lede">
+      ChessIQ AI reviews your chess games move by move — <strong>importing</strong> from
+      Lichess, Chess.com, or a pasted PGN, then running a <strong>full engine analysis
+      on your device</strong> to label every move, chart the swing in advantage, and
+      talk you through what happened.
+    </p>
+  </header>
+
+  <div class="facts">
+    <div class="fact">
+      <span class="fact-label">Version</span>
+      <span class="fact-value">1.0.0</span>
+    </div>
+    <div class="fact">
+      <span class="fact-label">Platform</span>
+      <span class="fact-value">iPhone · runs on iPad</span>
+    </div>
+    <div class="fact">
+      <span class="fact-label">Requires</span>
+      <span class="fact-value">iOS 17.0 or later</span>
+    </div>
+    <div class="fact">
+      <span class="fact-label">Engine</span>
+      <span class="fact-value">On-device, no server</span>
+    </div>
+  </div>
+
+  <section aria-labelledby="faq-heading">
+    <div class="section-head">
+      <h2 id="faq-heading">Frequently asked questions</h2>
+      <span class="section-note">8 topics</span>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">How do I bring a game into ChessIQ AI?</div>
+        <div class="faq-a">
+          Open the <strong>Games</strong> tab and pick a source: enter a
+          <strong>Lichess</strong> or <strong>Chess.com</strong> username to pull your
+          most recent games, or switch to <strong>Paste PGN</strong> and drop in the
+          game text directly. Tap a game in the list to open it for review.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Does my data ever leave my device?</div>
+        <div class="faq-a">
+          No. ChessIQ AI doesn't have a server of its own. Fetching games talks
+          directly to Lichess's or Chess.com's public API from your phone, and every
+          move is then analyzed by a chess engine running locally on your device —
+          your games and your analysis never get uploaded anywhere.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What do the move labels mean?</div>
+        <div class="faq-a">
+          Each move is scored against the engine's own best line and classified by how
+          much advantage it cost:
+          <div class="legend">
+            <span class="chip">Book</span>
+            <span class="chip best">Best</span>
+            <span class="chip best">Excellent</span>
+            <span class="chip">Good</span>
+            <span class="chip warn">Inaccuracy</span>
+            <span class="chip warn">Mistake</span>
+            <span class="chip bad">Blunder</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What's the vertical bar next to the board?</div>
+        <div class="faq-a">
+          That's the <strong>evaluation bar</strong>. It fills from the bottom up to
+          show White's estimated chance of winning the current position — a quick read
+          on which way, and how far, the game has swung.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">How does the spoken narration work?</div>
+        <div class="faq-a">
+          When it's on, ChessIQ AI reads each move aloud as you step through the game —
+          naming the move played, calling out blunders, and suggesting the stronger
+          alternative — then closes with a short spoken summary. Turn it off, pick a
+          voice, and adjust the speech rate under
+          <strong>Settings → Narration</strong>.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Analysis is taking a while — can I speed it up?</div>
+        <div class="faq-a">
+          Yes. <strong>Settings → Analysis → Search depth</strong> controls how deeply
+          the engine searches each position, from <code>8</code> to <code>20</code>.
+          Lower depth analyzes a game faster; higher depth takes longer but reads
+          further ahead.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Where does the accuracy score come from?</div>
+        <div class="faq-a">
+          After a game finishes analyzing, each side gets an accuracy percentage
+          summarizing how closely their moves tracked the engine's own choices across
+          the whole game — one number for how the game went, in addition to the
+          move-by-move labels.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Something's wrong, or I have an idea for the app.</div>
+        <div class="faq-a">
+          Good — that's exactly what the contact address below is for. Include the
+          device you're on and, if it's about a specific game, the username or PGN
+          that produced it.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="contact-heading">
+    <div class="section-head">
+      <h2 id="contact-heading">Contact</h2>
+    </div>
+    <div class="contact-card">
+      <p>
+        Questions, bug reports, and feature requests all go to the same place. We
+        read every message and reply from here.
+      </p>
+      <a class="mailto" href="mailto:nchackerian@gmail.com?subject=ChessIQ%20AI%20Support">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m4 6 8 7 8-7"/></svg>
+        Email support
+      </a>
+      <span class="mailto-addr">nchackerian@gmail.com</span>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 ChessIQ AI</span>
+    <span>Built for iPhone · runs on iPad</span>
+  </footer>
+
+</div>
