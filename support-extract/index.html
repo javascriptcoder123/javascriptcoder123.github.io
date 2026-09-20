@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Extractify Intel Support</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<style>
+  :root {
+    --bg: #F3F6F5;
+    --surface: #FFFFFF;
+    --surface-2: #EAF1EE;
+    --text: #12181A;
+    --text-muted: #5C6B67;
+    --border: #DCE4E1;
+    --accent: #0E8C74;
+    --accent-soft: #E1F5EF;
+    --warning: #9A5B0C;
+    --danger: #B3261E;
+    --purple: #6B4FBB;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0D1412;
+      --surface: #161F1D;
+      --surface-2: #1C2724;
+      --text: #EAF1EE;
+      --text-muted: #93A29D;
+      --border: #26332F;
+      --accent: #3FD9B2;
+      --accent-soft: rgba(63, 217, 178, 0.12);
+      --warning: #F0A94E;
+      --danger: #F27272;
+      --purple: #B7A6F2;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0D1412;
+    --surface: #161F1D;
+    --surface-2: #1C2724;
+    --text: #EAF1EE;
+    --text-muted: #93A29D;
+    --border: #26332F;
+    --accent: #3FD9B2;
+    --accent-soft: rgba(63, 217, 178, 0.12);
+    --warning: #F0A94E;
+    --danger: #F27272;
+    --purple: #B7A6F2;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  header.topbar {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px max(16px, calc((100% - 760px) / 2));
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .mark { width: 26px; height: 26px; flex: none; }
+  .wordmark { font-weight: 700; font-size: 1.05rem; letter-spacing: -0.01em; }
+  .topbar .doc-label {
+    margin-left: auto;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-family: ui-monospace, "SF Mono", "JetBrains Mono", monospace;
+    letter-spacing: 0.02em;
+  }
+
+  main { max-width: 760px; margin: 0 auto; padding: 0 16px 96px; }
+
+  .hero { padding-block: 48px 8px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+  }
+  h1 { font-size: clamp(1.9rem, 4.5vw, 2.5rem); margin: 0 0 10px; letter-spacing: -0.02em; text-wrap: balance; }
+  .dek { color: var(--text-muted); font-size: 1.05rem; max-width: 60ch; margin: 0; }
+
+  .quick-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 32px 0 48px;
+  }
+  .qa-card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 18px 18px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.15s, transform 0.15s;
+  }
+  .qa-card:hover, .qa-card:focus-visible { border-color: var(--accent); transform: translateY(-1px); }
+  .qa-icon {
+    width: 34px; height: 34px;
+    border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--accent-soft);
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .qa-icon svg { width: 18px; height: 18px; }
+  .qa-title { font-weight: 600; font-size: 0.98rem; }
+  .qa-sub { font-size: 0.85rem; color: var(--text-muted); }
+
+  .section-block { margin: 48px 0; }
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+  h2 { font-size: 1.35rem; margin: 0; letter-spacing: -0.01em; }
+  .count-tag {
+    font-family: ui-monospace, "SF Mono", "JetBrains Mono", monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .faq-group { margin-bottom: 28px; }
+  .faq-group-label {
+    font-family: ui-monospace, "SF Mono", "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 0 0 10px;
+  }
+
+  details.faq {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 8px;
+    overflow: hidden;
+  }
+  details.faq > summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 15px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-weight: 600;
+    font-size: 0.98rem;
+  }
+  details.faq > summary::-webkit-details-marker { display: none; }
+  details.faq > summary .chev {
+    flex: none;
+    width: 20px; height: 20px;
+    transition: transform 0.18s ease;
+    color: var(--text-muted);
+  }
+  details.faq[open] > summary .chev { transform: rotate(90deg); color: var(--accent); }
+  details.faq .faq-body {
+    padding: 0 18px 18px;
+    color: var(--text-muted);
+    font-size: 0.94rem;
+    max-width: 66ch;
+  }
+  details.faq .faq-body p { margin: 0 0 10px; }
+  details.faq .faq-body p:last-child { margin-bottom: 0; }
+  details.faq .faq-body code, .path {
+    font-family: ui-monospace, "SF Mono", "JetBrains Mono", monospace;
+    font-size: 0.88em;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1px 6px;
+    color: var(--text);
+  }
+
+  .status-legend {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .status-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 0.88rem;
+    background: var(--surface);
+  }
+  .dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+  .dot.pass { background: var(--accent); }
+  .dot.warn { background: var(--warning); }
+  .dot.crit { background: var(--danger); }
+  .dot.review { background: var(--purple); }
+
+  .contact-band {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .contact-band h3 { margin: 0 0 4px; font-size: 1.1rem; }
+  .contact-band p { margin: 0; color: var(--text-muted); font-size: 0.92rem; max-width: 44ch; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 600;
+    font-size: 0.92rem;
+    padding: 11px 18px;
+    border-radius: 999px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  :root[data-theme="dark"] .btn, @media (prefers-color-scheme: dark) { }
+  .btn { color: #08201A; }
+
+  footer {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 28px 16px calc(48px + env(safe-area-inset-bottom, 0px));
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <svg class="mark" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="g2" x1="0" y1="100" x2="100" y2="0">
+        <stop offset="0" stop-color="#0E8C74"/>
+        <stop offset="1" stop-color="#3FD9B2"/>
+      </linearGradient>
+    </defs>
+    <rect width="100" height="100" rx="22" fill="url(#g2)"/>
+    <path d="M50 20 L74 29 V50 C74 65 63 75 50 80 C37 75 26 65 26 50 V29 Z" fill="#fff"/>
+    <path d="M40 51 L47 58 L61 43" stroke="#0E8C74" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </svg>
+  <span class="wordmark">Extractify Intel</span>
+  <span class="doc-label">SUPPORT</span>
+</header>
+
+<main>
+  <div class="hero">
+    <p class="eyebrow">Help Center</p>
+    <h1>How can we help?</h1>
+    <p class="dek">Answers to the most common questions about your Security Score, the checks behind it, and how Extractify Intel handles (or rather, doesn't handle) your data.</p>
+  </div>
+
+  <div class="quick-actions">
+    <a class="qa-card" href="mailto:nchackerian@gmail.com">
+      <span class="qa-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg>
+      </span>
+      <span class="qa-title">Email support</span>
+      <span class="qa-sub">nchackerian@gmail.com · replies in 1–2 business days</span>
+    </a>
+    <a class="qa-card" href="./privacy-policy.html">
+      <span class="qa-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg>
+      </span>
+      <span class="qa-title">Privacy Policy</span>
+      <span class="qa-sub">What Extractify Intel collects (nothing)</span>
+    </a>
+    <a class="qa-card" href="https://apps.apple.com/" target="_blank" rel="noopener">
+      <span class="qa-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17.3l-6.2 3.3 1.2-6.9L2 8.9l6.9-1L12 1.6l3.1 6.3 6.9 1-5 4.8 1.2 6.9z"/></svg>
+      </span>
+      <span class="qa-title">Rate Extractify Intel</span>
+      <span class="qa-sub">Leave a review on the App Store</span>
+    </a>
+  </div>
+
+  <div class="section-block">
+    <div class="section-head">
+      <h2>Understanding your score</h2>
+    </div>
+    <p style="color:var(--text-muted); margin: 0 0 16px; max-width: 62ch;">Every check on your dashboard shows one of four statuses. Checks awaiting your input don't count toward your score yet, so an unanswered question can't masquerade as a pass or a failure.</p>
+    <div class="status-legend">
+      <div class="status-chip"><span class="dot pass"></span> Secure</div>
+      <div class="status-chip"><span class="dot warn"></span> Needs Attention</div>
+      <div class="status-chip"><span class="dot crit"></span> At Risk</div>
+      <div class="status-chip"><span class="dot review"></span> Review Needed</div>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-head"><h2>Frequently asked questions</h2></div>
+
+    <div class="faq-group">
+      <p class="faq-group-label">The Basics</p>
+
+      <details class="faq" open>
+        <summary>How is my Security Score calculated?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></summary>
+        <div class="faq-body">
+          <p>Each individual check contributes a value from 0–100 based on its status (Secure checks score 100, Needs Attention scores partial credit, At Risk scores 0). Your overall score is the average across every check that has an answer. Checks still marked Review Needed are left out of the average entirely until you confirm them, so they can't quietly drag your score down — or up.</p>
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary>Why do some checks ask me a yes/no question instead of just checking automatically?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></summary>
+        <div class="faq-body">
+          <p>iOS deliberately doesn't let any app — including Extractify Intel — read certain settings, like whether Find My or Lockdown Mode is turned on, or which configuration profiles are installed. That's a privacy protection built into the platform, not a limitation we'd remove if we could.</p>
+          <p>For those checks, Extractify Intel sends you straight to the right screen in Settings and asks you to confirm what you see there. It's one extra tap, in exchange for the same sandboxing that keeps other apps from reading your settings either.</p>
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary>Can Extractify Intel detect every jailbreak or piece of spyware?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></summary>
+        <div class="faq-body">
+          <p>No — and we'd rather tell you that plainly than let the app oversell itself. The Forensic Scan checks for filesystem and library artifacts commonly left behind by jailbreak tools, but a sophisticated jailbreak or targeted spyware is specifically built to hide from exactly these kinds of checks.</p>
+          <p>That's why the Forensic Scan also includes a short behavioral questionnaire — things like sudden battery drain or overheating are sometimes the only visible sign, and they're something only you can notice. If your answers point somewhere concerning, Extractify Intel will tell you and suggest contacting a real digital-security resource, rather than pretending to give you a diagnosis.</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="faq-group">
+      <p class="faq-group-label">Privacy &amp; Data</p>
+
+      <details class="faq">
+        <summary>Does Extractify Intel send any of my data anywhere?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></summary>
+        <div class="faq-body">
+          <p>No. Extractify Intel makes no network requests of any kind. There's no account, no analytics, and no server. Every check happens on your device and stays there. See the full <a href="./privacy-policy.html" style="color:var(--accent)">Privacy Policy</a> for specifics.</p>
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary>How do I reset my saved answers?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></summary>
+        <div class="faq-body">
+          <p>Your self-reported answers (like your Find My or Auto-Lock confirmation) are stored only on your device. To clear them, delete and reinstall Extractify Intel from the App Store, or go to <code>Settings → Extractify Intel → Offload/Reset</code> if your iOS version offers per-app reset. There's no account to reset anything from remotely.</p>
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary>Why does Extractify Intel ask for Face ID permission?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></summary>
+        <div class="faq-body">
+          <p>Purely to ask iOS a yes/no question — "is Face ID or Touch ID enrolled on this device?" — for the Passcode &amp; Biometrics check. Extractify Intel never actually triggers a Face ID prompt and never receives any biometric data.</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="faq-group">
+      <p class="faq-group-label">Troubleshooting</p>
+
+      <details class="faq">
+        <summary>Every check says "Review Needed" — is something broken?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></summary>
+        <div class="faq-body">
+          <p>That's expected the first time you open the app — Extractify Intel hasn't asked you anything yet. Tap into each category and answer the short prompts; your score will fill in as you go. Nothing is broken.</p>
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary>My score didn't update after I changed a Settings toggle.<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></summary>
+        <div class="faq-body">
+          <p>Since iOS doesn't let Extractify Intel read those settings directly, your answer only updates when you tell it to. After changing something in Settings, come back and tap <strong>Rescan Device</strong>, then re-confirm the relevant check.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="contact-band">
+      <div>
+        <h3>Still stuck?</h3>
+        <p>Send us the specifics — your iOS version and what you expected to happen — and we'll get back to you.</p>
+      </div>
+      <a class="btn" href="mailto:nchackerian@gmail.com">
+        Email support
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <span>© 2026 Extractify Intel</span>
+  <a href="./privacy-policy.html">Privacy Policy</a>
+</footer>
+
+</body>
+</html>
