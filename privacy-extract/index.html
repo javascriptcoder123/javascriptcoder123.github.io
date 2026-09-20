@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Extractify Intel Privacy Policy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<style>
+  :root {
+    --bg: #F3F6F5;
+    --surface: #FFFFFF;
+    --surface-2: #EAF1EE;
+    --text: #12181A;
+    --text-muted: #5C6B67;
+    --border: #DCE4E1;
+    --accent: #0E8C74;
+    --accent-soft: #E1F5EF;
+    --warning: #9A5B0C;
+    --shadow: rgba(20, 40, 35, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0D1412;
+      --surface: #161F1D;
+      --surface-2: #1C2724;
+      --text: #EAF1EE;
+      --text-muted: #93A29D;
+      --border: #26332F;
+      --accent: #3FD9B2;
+      --accent-soft: rgba(63, 217, 178, 0.12);
+      --warning: #F0A94E;
+      --shadow: rgba(0, 0, 0, 0.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0D1412;
+    --surface: #161F1D;
+    --surface-2: #1C2724;
+    --text: #EAF1EE;
+    --text-muted: #93A29D;
+    --border: #26332F;
+    --accent: #3FD9B2;
+    --accent-soft: rgba(63, 217, 178, 0.12);
+    --warning: #F0A94E;
+    --shadow: rgba(0, 0, 0, 0.35);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", "JetBrains Mono", "Menlo", monospace;
+  }
+
+  header.topbar {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px max(16px, calc((100% - 720px) / 2));
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .mark {
+    width: 26px; height: 26px; flex: none;
+  }
+  .wordmark {
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+  }
+  .topbar .doc-label {
+    margin-left: auto;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-family: ui-monospace, "SF Mono", "JetBrains Mono", monospace;
+    letter-spacing: 0.02em;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 16px 96px;
+  }
+
+  .hero {
+    padding-block: 48px 28px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+  }
+  h1 {
+    font-size: clamp(1.9rem, 4.5vw, 2.5rem);
+    margin: 0 0 10px;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  .dek {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    max-width: 62ch;
+    margin: 0;
+  }
+  .meta-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  .meta-row span b { color: var(--text); font-weight: 600; }
+
+  .thesis {
+    background: var(--accent-soft);
+    border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--border));
+    border-radius: 14px;
+    padding: 20px 22px;
+    margin: 28px 0 40px;
+    font-size: 1.05rem;
+  }
+  .thesis strong { color: var(--accent); }
+
+  .toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+    margin: 0 0 44px;
+    padding: 0;
+    list-style: none;
+  }
+  .toc a {
+    display: inline-block;
+    font-size: 0.82rem;
+    font-family: ui-monospace, "SF Mono", "JetBrains Mono", monospace;
+    color: var(--text-muted);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 6px 12px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .toc a:hover, .toc a:focus-visible {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  section {
+    padding-block: 30px;
+    border-top: 1px solid var(--border);
+    scroll-margin-top: 72px;
+  }
+  section:first-of-type { border-top: none; }
+
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .sec-num {
+    font-family: ui-monospace, "SF Mono", "JetBrains Mono", monospace;
+    color: var(--accent);
+    font-size: 0.95rem;
+    flex: none;
+  }
+  h2 {
+    font-size: 1.28rem;
+    margin: 0;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  section p { margin: 0 0 14px; max-width: 66ch; }
+  section p:last-child { margin-bottom: 0; }
+  section ul { margin: 0 0 14px; padding-left: 1.3em; max-width: 64ch; }
+  section li { margin-bottom: 6px; }
+
+  .path {
+    display: inline-block;
+    font-family: ui-monospace, "SF Mono", "JetBrains Mono", monospace;
+    font-size: 0.86em;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1px 7px;
+    color: var(--text);
+  }
+
+  table.data-map {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 4px 0 18px;
+    font-size: 0.92rem;
+  }
+  table.data-map th, table.data-map td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  table.data-map th {
+    font-family: ui-monospace, "SF Mono", "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+  table.data-map td.status-none {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  @media (max-width: 640px) {
+    table.data-map { display: block; overflow-x: auto; }
+  }
+
+  .callout {
+    border-left: 3px solid var(--warning);
+    background: color-mix(in srgb, var(--warning) 10%, var(--surface));
+    padding: 14px 16px;
+    border-radius: 0 10px 10px 0;
+    font-size: 0.93rem;
+    margin: 4px 0 18px;
+  }
+
+  footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 28px 16px calc(48px + env(safe-area-inset-bottom, 0px));
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <svg class="mark" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="g" x1="0" y1="100" x2="100" y2="0">
+        <stop offset="0" stop-color="#0E8C74"/>
+        <stop offset="1" stop-color="#3FD9B2"/>
+      </linearGradient>
+    </defs>
+    <rect width="100" height="100" rx="22" fill="url(#g)"/>
+    <path d="M50 20 L74 29 V50 C74 65 63 75 50 80 C37 75 26 65 26 50 V29 Z" fill="#fff"/>
+    <path d="M40 51 L47 58 L61 43" stroke="#0E8C74" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </svg>
+  <span class="wordmark">Extractify Intel</span>
+  <span class="doc-label">PRIVACY&nbsp;POLICY</span>
+</header>
+
+<main>
+  <div class="hero">
+    <p class="eyebrow">Legal · Privacy</p>
+    <h1>Privacy Policy</h1>
+    <p class="dek">What Extractify Intel does with your data — and what it doesn't, because it never has any.</p>
+    <div class="meta-row">
+      <span>Effective <b>September 20, 2026</b></span>
+      <span>Applies to <b>Extractify Intel for iOS</b>, version <b>1.0</b> and later</span>
+    </div>
+  </div>
+
+  <div class="thesis">
+    <strong>The short version:</strong> Extractify Intel collects nothing, sends nothing anywhere, and has no servers to send it to. Every check it runs happens on your device, using Apple's own frameworks, and stays there. Everything below is just the detailed version of that one sentence.
+  </div>
+
+  <ul class="toc" role="list">
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#what-it-checks">What Extractify Intel Looks At</a></li>
+    <li><a href="#what-we-collect">What We Collect</a></li>
+    <li><a href="#storage">Where Your Answers Live</a></li>
+    <li><a href="#third-parties">Third Parties</a></li>
+    <li><a href="#permissions">Permissions</a></li>
+    <li><a href="#children">Children's Privacy</a></li>
+    <li><a href="#changes">Changes to This Policy</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <section id="overview">
+    <div class="sec-head"><span class="sec-num">§1</span><h2>Overview</h2></div>
+    <p>Extractify Intel is a security checkup app for iPhone and iPad. It looks at your device's own settings and system state — things like your iOS version, passcode status, and system uptime — and turns them into a plain-English score and a list of things to fix.</p>
+    <p>There is no Extractify Intel server. There is no account to create, no sign-in, and no analytics SDK bundled with the app. This policy exists because the App Store requires one, not because there's much to disclose.</p>
+  </section>
+
+  <section id="what-it-checks">
+    <div class="sec-head"><span class="sec-num">§2</span><h2>What Extractify Intel Looks At</h2></div>
+    <p>To build your security score, Extractify Intel reads the following <em>from your device, using standard iOS APIs available to any app</em>:</p>
+    <ul>
+      <li>Your installed iOS version, compared against a list built into the app</li>
+      <li>Whether a passcode and Face&nbsp;ID/Touch&nbsp;ID are enrolled (via Apple's <span class="path">LocalAuthentication</span> framework — Extractify Intel never sees the passcode or biometric data itself, only a yes/no)</li>
+      <li>System uptime, to suggest a reboot when it's been a while</li>
+      <li>A small set of filesystem paths and loaded libraries, checked only for the presence of known jailbreak-tool artifacts</li>
+      <li>Answers you type or select yourself — such as whether Find My or Lockdown Mode is on, or how you'd describe recent device behavior — since iOS doesn't expose those settings to any app, including this one</li>
+    </ul>
+    <p>None of this leaves your device. None of it is used to identify you.</p>
+  </section>
+
+  <section id="what-we-collect">
+    <div class="sec-head"><span class="sec-num">§3</span><h2>What We Collect</h2></div>
+    <table class="data-map">
+      <thead>
+        <tr><th>Category</th><th>Collected?</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Personal information (name, email, etc.)</td><td class="status-none">None</td><td>Never asked for</td></tr>
+        <tr><td>Usage analytics / telemetry</td><td class="status-none">None</td><td>No analytics SDK is included in the app</td></tr>
+        <tr><td>Crash reports</td><td class="status-none">None</td><td>No crash-reporting SDK is included</td></tr>
+        <tr><td>Advertising identifiers</td><td class="status-none">None</td><td>Extractify Intel shows no ads</td></tr>
+        <tr><td>Location</td><td class="status-none">None</td><td>Never requested</td></tr>
+        <tr><td>Your self-reported answers</td><td class="status-none">Stored on-device only</td><td>Never transmitted — see §4</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="storage">
+    <div class="sec-head"><span class="sec-num">§4</span><h2>Where Your Answers Live</h2></div>
+    <p>When you confirm something Extractify Intel can't check on its own — for example, tapping "Yes, it's enabled" for Find&nbsp;My — that answer is saved using Apple's standard <span class="path">UserDefaults</span> storage, sandboxed to the Extractify Intel app on your device.</p>
+    <p>That storage is not synced to iCloud or any Extractify Intel-operated service, because no such service exists. It may be included in a standard encrypted device backup you make yourself (via iCloud Backup or a computer), the same as any other app's local data — that's an iOS platform behavior, not something Extractify Intel adds.</p>
+    <div class="callout">Deleting the app deletes these answers. There's no account to close and no server-side copy to request, because nothing ever leaves your device.</div>
+  </section>
+
+  <section id="third-parties">
+    <div class="sec-head"><span class="sec-num">§5</span><h2>Third Parties</h2></div>
+    <p>Extractify Intel does not share data with third parties, because it does not collect data to share. It embeds no third-party SDKs — no analytics, no advertising, no cloud sync, no crash reporting. The app makes no network requests at all.</p>
+  </section>
+
+  <section id="permissions">
+    <div class="sec-head"><span class="sec-num">§6</span><h2>Permissions</h2></div>
+    <p>Extractify Intel's Face&nbsp;ID usage description exists so it can ask iOS whether biometric authentication is <em>enrolled</em> — it never actually prompts you for Face&nbsp;ID or Touch&nbsp;ID, and never receives biometric data. No other iOS permission (camera, contacts, location, network) is requested.</p>
+  </section>
+
+  <section id="children">
+    <div class="sec-head"><span class="sec-num">§7</span><h2>Children's Privacy</h2></div>
+    <p>Extractify Intel does not knowingly collect personal information from anyone, including children under 13 — it does not knowingly collect personal information from anyone at all, of any age, because it has no mechanism to collect or transmit it.</p>
+  </section>
+
+  <section id="changes">
+    <div class="sec-head"><span class="sec-num">§8</span><h2>Changes to This Policy</h2></div>
+    <p>If this policy changes — for instance, if a future version of Extractify Intel adds an optional feature that does involve network access — the "Effective" date at the top of this page will be updated, and material changes will be described in that version's App Store release notes before you update.</p>
+  </section>
+
+  <section id="contact">
+    <div class="sec-head"><span class="sec-num">§9</span><h2>Contact</h2></div>
+    <p>Questions about this policy or how Extractify Intel handles device data: <a class="path" style="text-decoration:none" href="mailto:nchackerian@gmail.com">nchackerian@gmail.com</a></p>
+  </section>
+</main>
+
+<footer>
+  <span>© 2026 Extractify Intel</span>
+  <a href="./support.html">Support</a>
+</footer>
+
+</body>
+</html>
